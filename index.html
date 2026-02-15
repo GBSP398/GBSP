@@ -61,7 +61,7 @@ nav button {
     background-color: white;
 }
 
-/* 🔵 WORK SECTION BIG TEXT */
+/* WORK SECTION */
 #work {
     background: white;
     color: black;
@@ -102,6 +102,53 @@ nav button {
     background: linear-gradient(135deg, #1565c0, #42a5f5);
     color: white;
 }
+
+/* COMPANY PROFILE / GALLERY */
+#company {
+    background: white; /* White background only */
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50vh 30vh;  /* 2 rows only */
+    gap: 15px;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+#company img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#company img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* 2nd row layout for 6 images */
+#company img:nth-child(4) { grid-column: 1; }
+#company img:nth-child(5) { grid-column: 2; }
+#company img:nth-child(6) { grid-column: 3; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    #company {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #company {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
 </style>
 
 <script>
@@ -121,12 +168,23 @@ window.onload = () => showSection("home");
 
 <nav>
     <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('company')">Profile</button> <!-- 2nd Button -->
     <button onclick="showSection('work')">Work</button>
     <button onclick="showSection('instructions')">Instructions</button>
     <button onclick="showSection('apply')">Apply</button>
 </nav>
 
 <div id="home" class="section"></div>
+
+<!-- COMPANY PROFILE SECTION -->
+<div id="company" class="section">
+    <img src="business1.jpg.jpeg" alt="Business 1">
+    <img src="business2.jpg.jpg" alt="Business 2">
+    <img src="business3.jpg.jpg" alt="Business 3">
+    <img src="business4.jpg.jpg" alt="Business 4">
+    <img src="business5.jpg.jpg" alt="Business 5">
+    <img src="business6.jpg.jpg" alt="Business 6">
+</div>
 
 <div id="work" class="section">
   <div class="content-box">
